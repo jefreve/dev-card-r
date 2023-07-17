@@ -4,9 +4,20 @@
 }
 .afterContentDot:after {
   content: "•";
+  margin: 0 4px;
 }
 .checked {
   color: rgb(255, 128, 0);
+}
+.dontDisplay {
+  display: none;
+}
+
+// Listings contain all the cards
+.listings {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 // CARD STYLES
@@ -18,14 +29,13 @@
   font-size: 0.875rem;
   grid-gap: 0.5rem 1rem;
   grid-template-columns: minmax(180px, 30%) 1fr;
-  grid-template-rows: repeat(1, 1fr);
-  height: 127px;
-  margin: 400px 235px 0 555px;
+  // margin: 400px 235px 0 555px;
   text-decoration: none;
 
   .pictureBox {
     border-radius: 10px;
-    height: 125px;
+    height: 100%;
+    min-height: 125px;
     overflow: hidden;
     position: relative;
     z-index: 2;
@@ -36,21 +46,51 @@
       width: 100%;
       z-index: 1;
     }
+    .logo {
+      border: 1px solid #fff;
+      border-radius: 8px;
+      left: 1rem;
+      height: 50px;
+      position: absolute;
+      top: 1rem;
+      z-index: 1;
+    }
+    .sponsoredAndFidelty {
+      bottom: 1rem;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 5px;
+      left: 1rem;
+      list-style: none;
+      max-height: 100%;
+      position: absolute;
+      z-index: 1;
+
+      .sponsored {
+        background-color: #292825;
+        border-radius: 0.25rem;
+        color: #fff;
+        padding: 0.25rem;
+      }
+      .fideltyCard {
+        background-color: #fdead2;
+        border-radius: 0.25rem;
+        color: #000;
+        padding: 0.25rem;
+      }
+    }
   }
 
   //INTERNAL GRID
   .cardGrid {
-    display: grid;
-    grid-gap: 0 0.75rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    height: 127px;
-
     .headerRestaurant {
+      align-items: center;
+      display: flex;
       font-size: 1.25rem;
       grid-row-start: 1;
       grid-row-end: 2;
       margin: 0.5rem 0;
+      width: 100%;
     }
 
     .headerRestaurant:hover {
@@ -58,13 +98,22 @@
     }
 
     .ratingAndReviews {
+      align-items: center;
+      display: flex;
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 2;
       grid-row-end: 3;
+
+      .fa-star,
+      .ratingRight {
+        margin-right: 4px;
+      }
     }
 
     .restaurantTypes {
+      align-items: center;
+      display: flex;
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 3;
@@ -72,25 +121,79 @@
     }
 
     .distance {
+      align-items: center;
+      display: flex;
       grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 2;
       grid-row-end: 3;
 
-      .onePointFourKm {
-        margin-left: 2.5px;
+      .fa-map-marker {
+        margin-right: 4px;
       }
     }
     .delivery {
+      align-items: center;
+      display: flex;
       grid-column-start: 2;
       grid-column-end: 3;
       grid-row-start: 3;
       grid-row-end: 4;
+
+      .fa-money {
+        margin-right: 4px;
+      }
     }
   }
 }
 
-// Cards that are not the first should not have a big margin-top
-.cardNotFirst {
-  margin-top: 30px;
+// Media Queries
+@media screen and (min-width: 48.001em) {
+}
+.cardGrid {
+  display: grid;
+  grid-gap: 0 0.75rem;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  height: 127px;
+}
+
+@media screen and (max-width: 47.999em) {
+  .listings {
+    align-items: center;
+  }
+  .card {
+    grid-template-columns: 1fr;
+    width: 95%;
+    max-width: 95%;
+
+    .cardGrid {
+      align-items: center;
+      display: flex;
+      flex-flow: row wrap;
+      height: unset;
+
+      .headerRestaurant {
+        display: flex;
+        flex: 100%;
+        font-size: 1rem;
+        margin: 0;
+      }
+      .restaurantTypes {
+        flex-grow: 1;
+        flex-wrap: wrap;
+      }
+      .ratingAndReviews,
+      .distance {
+        align-items: center;
+        display: flex;
+      }
+      .headerRestaurant,
+      .delivery {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
 }
