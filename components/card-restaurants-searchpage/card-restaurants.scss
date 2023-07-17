@@ -1,0 +1,96 @@
+// GENERAL STYLES
+.bold {
+  font-weight: bold;
+}
+.afterContentDot:after {
+  content: "•";
+}
+.checked {
+  color: rgb(255, 128, 0);
+}
+
+// CARD STYLES
+
+.card {
+  //MOST EXTERNAL GRID
+  color: #000;
+  display: grid;
+  font-size: 0.875rem;
+  grid-gap: 0.5rem 1rem;
+  grid-template-columns: minmax(180px, 30%) 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  height: 127px;
+  margin: 400px 235px 0 555px;
+  text-decoration: none;
+
+  .pictureBox {
+    border-radius: 10px;
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+
+    .picture {
+      top: -1.8rem;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+    }
+  }
+
+  //INTERNAL GRID
+  .cardGrid {
+    display: grid;
+    grid-gap: 0 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    height: 127px;
+
+    .headerRestaurant {
+      font-size: 1.25rem;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      margin: 0.5rem 0;
+    }
+
+    .headerRestaurant:hover {
+      text-decoration: underline;
+    }
+
+    .ratingAndReviews {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+
+    .restaurantTypes {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+
+    .distance {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+
+      .onePointFourKm {
+        margin-left: 2.5px;
+      }
+    }
+    .delivery {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
+  }
+}
+
+// Cards that are not the first should not have a big margin-top
+.cardNotFirst {
+  margin-top: 30px;
+}

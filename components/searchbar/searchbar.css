@@ -1,0 +1,209 @@
+@import url(../../assets/css/common.css);
+
+body {
+    background-color: #fcfcfc;
+    font-family: JetSansDigital,Arial,sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    display: block;
+}
+
+h2 {
+    display: block;
+}
+
+/* || Div containing the whole searchbar */
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    color: #657275;
+    border-radius: 12px;
+    /* box-shadow: offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 2px 4px 0 rgb(211, 210, 210);
+    font-size: 2rem;
+    width: 95%;
+    padding: 1rem;
+    margin: 0 auto auto;
+    text-align: center;
+    
+}
+
+/* || Title : il bello è prenderci gusto */
+.title {
+    color: #fb6100;
+    font-weight: 800;
+    flex-shrink: 1;
+
+}
+
+/* || Subtitle below title: ordina online dai tuoi ristoranti preferiti */
+.subtitle {
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+    font-weight: 400;
+}
+
+/* || Div containing the Searchbox */
+.searchBoxWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+
+/* || Search bar containing input and button */
+.searchBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: #657275;
+    border: 1px solid #8a8786;
+    border-radius: 35px;
+    width: 100%;
+    max-width: 611px;
+}
+
+/* || Input: Indirizzo di consegna */
+input {
+    color:black;
+    font-size: 1rem;
+    border: none;
+    background-color: unset;
+    outline: none;
+    margin: 0;
+    margin-left: 2em; 
+    margin-bottom: -1.3em;
+    width: auto; 
+}
+
+/* || Indirizzo di consegna, animated label that moves above typing space when user focuses on input */
+label {
+    position: absolute;
+    color: #657275;
+    left: 0;
+    margin: 0;
+    margin-left: 2em; 
+    margin-bottom: 0;
+    transform-origin: 0 0;
+    transition: transform 0.25s ease;
+}
+
+/* || Label Animation */
+
+input:focus + label, input:not(:placeholder-shown) + label {
+    transform: translateY(-1em) scale(0.9);
+}
+
+input::placeholder {
+    color: transparent;
+}
+
+/* || Button: Trova i ristoranti */
+button {
+    background-color: #fb6100;
+    font-size: 1.2rem;
+    color: white;
+    border: 0;
+    border-radius: 35px;
+    padding: 16px 24px;
+}
+
+button:hover {
+    background-color: #e65903;
+    cursor: pointer;
+}
+
+/* || Paper dart (position) + Magnifying glass (search) ICONS */
+.svg-icons {
+    display: flex;
+    align-items: center;
+}
+
+.paper-plane {
+    display: none;
+    color: #fb6100;
+    margin-top: 0.3em;
+    margin-right: 0.2em;
+}
+
+.magnifying-glass {
+    display: none;
+    color: #fb6100;
+    margin-left: 0;
+}
+
+/* || Media Queries  */
+
+@media screen and (min-width: 37.5em) {
+    .searchBar {
+        max-width: 800px;
+        min-height: 211px;
+        padding: 16px;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+    }    
+}
+
+
+@media screen and (min-width: 25.876em) {
+    .searchBox {
+        height: 64px;
+    }
+
+    button {
+        margin: 4px;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+}
+
+
+
+@media screen and (max-width: 37.5em ){
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .paper-plane {
+        display: block;
+        height: 25px;
+    }
+
+    .magnifying-glass {
+        display: block;
+        margin-top: 15px;
+        height: 80px;
+        width: 60px;
+    }
+
+    label {
+        top: 0.6em;
+        transition: transform 0.25s ease-in-out;
+    }
+    
+    input:focus + label, input:not(:placeholder-shown) + label {
+        transform: scale(0.8);
+    }
+    
+    button {
+        display: none;
+    }
+
+    
+}

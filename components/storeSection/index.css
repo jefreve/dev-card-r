@@ -1,0 +1,99 @@
+/* write your css here */
+@import url(../../assets/css/common.css) ;
+
+section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+ 
+}
+
+.smartphone img{
+    height: 280px;
+   
+   
+}
+.media{
+    margin-left: 170px;
+}
+
+.media img{
+    height: 80px;
+    width: 80px;
+
+   
+   
+
+    
+}
+
+
+
+.article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.article h1{
+    font-size: 2rem;
+    margin-bottom:1px;
+    color: rgba(68, 68, 68, 0.97);
+}
+
+.article p{
+    font-size: 1.1rem;
+}
+
+.logo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+}
+ 
+@media(max-width: 816px){
+    .media{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .article h1{
+        font-size: 1rem;
+        margin-bottom:1px
+    }
+    .article p{
+        font-size: 1rem;
+    }
+
+
+    .logo{
+        margin-left: 1px;
+    }
+
+
+}
+
+@media(max-width: 599px){
+    .media{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .smartphone img{
+        height: 150px;
+        margin-top: 80px;
+    }
+    .media img{
+        height: 80px;
+        width: 80px;
+        margin: 1px;
+        display: flex;
+        justify-content: left;
+       
+        
+        
+       
+    }
+
+}
